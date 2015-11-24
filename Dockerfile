@@ -3,7 +3,7 @@ FROM oberthur/docker-alpine-java:jdk8_8.65.17
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
 ENV HOME=/opt/app
-ENV ACTIVEMQ_VERSION 5.11.1
+ENV ACTIVEMQ_VERSION 5.12.1
 WORKDIR /opt/app
 
 # Install activemq
