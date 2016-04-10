@@ -10,7 +10,7 @@ ADD start-activemq.sh /bin/start-activemq.sh
 
 # Install activemq
 RUN chmod +x /bin/start-*.sh \
-  && curl -LO http://www.eu.apache.org/dist/activemq/${ACTIVEMQ_VERSION}/apache-activemq-${ACTIVEMQ_VERSION}-bin.tar.gz \
+  && curl -LO https://www.apache.org/dist/activemq/${ACTIVEMQ_VERSION}/apache-activemq-${ACTIVEMQ_VERSION}-bin.tar.gz \
   && gunzip apache-activemq-${ACTIVEMQ_VERSION}-bin.tar.gz \
   && tar -xf apache-activemq-${ACTIVEMQ_VERSION}-bin.tar -C /opt/app \
   && mv apache-activemq-*/ apache-activemq/ \
