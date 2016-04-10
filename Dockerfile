@@ -20,7 +20,7 @@ RUN chmod +x /bin/start-*.sh \
 
   # change to ssl connector
   && apt-get update \
-  && apt-get install xmlstarlet
+  && apt-get install xmlstarlet \
   && xmlstarlet ed -L --subnode "/_:beans/_:bean[@id='invokeConnectors']/_:property[@name='arguments']/_:list" --type elem -n 'bean id="SecureConnector" class="org.eclipse.jetty.server.ServerConnector"' -v "" /opt/app/apache-activemq/conf/jetty.xml \
   && xmlstarlet ed -L --subnode "/_:beans/_:bean[@id='invokeConnectors']/_:property[@name='arguments']/_:list/_:bean[@id='SecureConnector' and @class='org.eclipse.jetty.server.ServerConnector']" --type elem -n 'constructor-arg' -v "" /opt/app/apache-activemq/conf/jetty.xml \
   && xmlstarlet ed -L --subnode "/_:beans/_:bean[@id='invokeConnectors']/_:property[@name='arguments']/_:list/_:bean[@id='SecureConnector' and @class='org.eclipse.jetty.server.ServerConnector']/_:constructor-arg" --type elem -n 'bean id="handlers" class="org.eclipse.jetty.util.ssl.SslContextFactory"' -v "" /opt/app/apache-activemq/conf/jetty.xml \
@@ -42,6 +42,6 @@ RUN echo "app:x:999:999::/opt/app:/bin/false" >> /etc/passwd; \
   echo "app:x:999:" >> /etc/group; \
   mkdir -p /opt/app; chown app:app /opt/app
 
-EXPOSE 61612 61613 61616 8161
+EXPOSE 61612 61613 61616 8161 8162
 
 ENTRYPOINT ["/bin/start-activemq.sh"]
