@@ -11,6 +11,7 @@ You need edit (add) this env:
 - **PORT_STOMP**: port for stomp connection (default value is 61613)
 - **PORT_MQTT**: port for MQTT connection (default value is 1883)
 - **PORT_WS**: port for WebSocket connection (default value is 61614)
+- **NETWORK_OF_BROKERS_CONNECTORS_URI**: possibility to configure network of brokers. As this env variable is part of `sed` command it needs to escape all special characters like in `sed` f.e.: ```export NETWORK_OF_BROKERS_CONNECTORS_URI=static:(tcp:\/\/10.122.17.157:61616)```
 
 If you want web console you should expose:
 - **8161**: if you need plain http connection
