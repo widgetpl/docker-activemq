@@ -2,9 +2,15 @@
 Basic Docker image to run activemq as user app (999:999)
 
 You need edit (add) this env:
+
+*General*
+
 - **STORE_USAGE**: value in GB (default value is 10)
 - **TEMP_USAGE**: value in GB (default value is 5)
 - **ADMIN_PASSWORD**: provide admin password (default admin123)
+
+*Networking*
+
 - **PORT_OPENWIRE**: port for openwire connection (default value is 61616)
 - **PORT_AMQP**: port for AMQP connection (default value is 5672)
 - **PORT_STOMPSSL**: port for stomp/SSL connection (default value is 61612)
@@ -13,7 +19,9 @@ You need edit (add) this env:
 - **PORT_WS**: port for WebSocket connection (default value is 61614)
 - **NETWORK_OF_BROKERS_CONNECTORS_URI**: possibility to configure network of brokers. As this env variable is part of `sed` command it needs to escape all special characters like in `sed` f.e.:
 ```export NETWORK_OF_BROKERS_CONNECTORS_URI=static:(tcp:\/\/10.122.17.157:61616)```
-Logging:
+
+*Logging:*
+
 - **ROOT_LOGGER_LEVEL** - changes `log4j.rootLogger` (default value: `INFO, console, logfile`)
 - **ACTIVEMQ_SPRING_LOGGER_LEVEL** - changes `log4j.logger.org.apache.activemq.spring` (default value: `WARN`)
 - **ACTIVEMQ_WEB_HANDLER_LOGGER_LEVEL** - changes `log4j.logger.org.apache.activemq.web.handler` (default value: `WARN`)
